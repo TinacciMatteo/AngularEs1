@@ -1,0 +1,23 @@
+<h1> Hello, {{title}}</h1>
+
+<label>name: </label><input type="text" [(ngModel)]="newPerson.name"/>
+<label>surname: </label><input type="text" [(ngModel)]="newPerson.surname"/>
+<label>age: </label><input type="text" [(ngModel)]="newPerson.age"/>
+
+<button *ngIf="!editMode" (click) = "AddButton()" [disabled]="buttonDisabled">aggiungi</button>
+
+<button (click) = "click2()">abilita</button>
+
+<button *ngIf="editMode" (click)="CompleteEdit()">Conferma</button>
+
+<hr>
+
+<div *ngFor="let person of personList; let i = index">
+
+    <p>{{person.name}}</p>
+    <p>{{person.surname}}</p>
+    <p>{{person.age}}</p>
+    <button (click)="DeleteButton(i)">Elimina</button>
+    <button (click)="ModifyButton(i)">Modifica</button>
+    <hr>
+</div>
